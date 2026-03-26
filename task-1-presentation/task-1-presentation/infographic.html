@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Literacy Infographic</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0f1e;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 30px 20px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .poster {
+    width: 820px;
+    background: #0d1225;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 40px 120px rgba(0,0,0,0.8);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, #1a1f3a 0%, #0f1628 100%);
+    padding: 40px 48px 36px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(99,179,255,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 40%;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(120,90,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(99,179,255,0.12);
+    border: 1px solid rgba(99,179,255,0.3);
+    color: #63b3ff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 18px;
+  }
+  .header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    position: relative;
+    z-index: 1;
+  }
+  .header h1 span {
+    background: linear-gradient(90deg, #63b3ff, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .header p {
+    margin-top: 12px;
+    color: rgba(255,255,255,0.45);
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+    position: relative;
+    z-index: 1;
+    max-width: 500px;
+    line-height: 1.6;
+  }
+
+  /* ── SECTIONS ── */
+  .sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+  }
+
+  .section {
+    padding: 32px 28px;
+    border-right: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+  }
+  .section:last-child { border-right: none; }
+
+  .section-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+  .icon-blue  { background: rgba(99,179,255,0.12); }
+  .icon-purple{ background: rgba(167,139,250,0.12); }
+  .icon-teal  { background: rgba(52,211,153,0.12); }
+
+  .section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: -0.2px;
+  }
+  .section-desc {
+    color: rgba(255,255,255,0.4);
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .pill-list { display: flex; flex-direction: column; gap: 8px; }
+  .pill {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.4;
+    font-weight: 400;
+  }
+  .pill-blue   { background: rgba(99,179,255,0.07); border: 1px solid rgba(99,179,255,0.12); }
+  .pill-purple { background: rgba(167,139,250,0.07); border: 1px solid rgba(167,139,250,0.12); }
+  .pill-teal   { background: rgba(52,211,153,0.07); border: 1px solid rgba(52,211,153,0.12); }
+
+  .pill-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    flex-shrink: 0; margin-top: 4px;
+  }
+  .dot-blue   { background: #63b3ff; }
+  .dot-purple { background: #a78bfa; }
+  .dot-teal   { background: #34d399; }
+
+  /* ── STATS BAR ── */
+  .stats {
+    background: linear-gradient(90deg, rgba(99,179,255,0.06), rgba(167,139,250,0.06));
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px 0;
+  }
+  .stat {
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.05);
+    padding: 0 20px;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #63b3ff, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    color: rgba(255,255,255,0.35);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+  }
+
+  /* ── ALERT STRIP ── */
+  .alert {
+    background: rgba(239,68,68,0.07);
+    border: 1px solid rgba(239,68,68,0.15);
+    margin: 24px 32px;
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .alert-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .alert-title {
+    font-family: 'Syne', sans-serif;
+    color: #f87171;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .alert-body {
+    color: rgba(255,255,255,0.45);
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: rgba(255,255,255,0.02);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-left {
+    font-family: 'Syne', sans-serif;
+    color: rgba(255,255,255,0.2);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .footer-right {
+    display: flex; gap: 6px;
+  }
+  .tag {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.25);
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="badge">Student Digital Ambassador · VIT Bhopal</div>
+    <h1>Be <span>Digitally</span><br>Smart</h1>
+    <p>A visual guide for first-year B.Tech students — covering digital literacy, safe internet practices, and building a professional online presence.</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">5B+</div>
+      <div class="stat-label">Internet Users Worldwide</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">60%</div>
+      <div class="stat-label">Cyber Crimes Target Students</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">92%</div>
+      <div class="stat-label">Recruiters Check Online Profiles</div>
+    </div>
+  </div>
+
+  <!-- 3 SECTIONS -->
+  <div class="sections">
+
+    <!-- SECTION 1 -->
+    <div class="section">
+      <div class="section-icon icon-blue">💡</div>
+      <h2>What is Digital Literacy?</h2>
+      <p class="section-desc">The ability to find, evaluate, create and communicate information using digital tools — responsibly and effectively.</p>
+      <div class="pill-list">
+        <div class="pill pill-blue"><span class="pill-dot dot-blue"></span>Using digital tools for learning & communication</div>
+        <div class="pill pill-blue"><span class="pill-dot dot-blue"></span>Evaluating online information critically</div>
+        <div class="pill pill-blue"><span class="pill-dot dot-blue"></span>Creating content & collaborating online</div>
+        <div class="pill pill-blue"><span class="pill-dot dot-blue"></span>Understanding your digital rights & responsibilities</div>
+      </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="section">
+      <div class="section-icon icon-purple">🔒</div>
+      <h2>Safe Internet Practices</h2>
+      <p class="section-desc">Protect yourself online with these essential habits every student must follow daily.</p>
+      <div class="pill-list">
+        <div class="pill pill-purple"><span class="pill-dot dot-purple"></span>Use strong, unique passwords for every account</div>
+        <div class="pill pill-purple"><span class="pill-dot dot-purple"></span>Enable Two-Factor Authentication (2FA)</div>
+        <div class="pill pill-purple"><span class="pill-dot dot-purple"></span>Never click links in suspicious emails or DMs</div>
+        <div class="pill pill-purple"><span class="pill-dot dot-purple"></span>Review privacy settings on all platforms regularly</div>
+      </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="section">
+      <div class="section-icon icon-teal">🌐</div>
+      <h2>Professional Online Presence</h2>
+      <p class="section-desc">Your digital footprint is your permanent resume. Start building it from Year 1.</p>
+      <div class="pill-list">
+        <div class="pill pill-teal"><span class="pill-dot dot-teal"></span>Set up GitHub — host all your projects here</div>
+        <div class="pill pill-teal"><span class="pill-dot dot-teal"></span>Create a LinkedIn profile with your education</div>
+        <div class="pill pill-teal"><span class="pill-dot dot-teal"></span>Keep all profiles professional and updated</div>
+        <div class="pill pill-teal"><span class="pill-dot dot-teal"></span>92% of recruiters search your name online first</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ALERT -->
+  <div class="alert">
+    <div class="alert-icon">⚠️</div>
+    <div>
+      <div class="alert-title">Cybercrime Alert for Students</div>
+      <div class="alert-body">Never share OTPs, Aadhaar numbers, or bank details online — even with people claiming to be from your college, bank, or government. If you face cybercrime, report it at <strong style="color:#f87171">cybercrime.gov.in</strong> or call helpline <strong style="color:#f87171">1930</strong> (24×7).</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">CSE0001 · Digital Literacy · VIT Bhopal University · 2026</div>
+    <div class="footer-right">
+      <span class="tag">Aditya Srivastav</span>
+      <span class="tag">25BEC10058</span>
+      <span class="tag">ECE</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
